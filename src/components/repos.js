@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const Repositórios = ({ className, title, repos }) => (
+const Repos = ({ className, title, repos }) => (
 
   <div className={className}>
     <h2>{title}</h2>
@@ -16,4 +16,14 @@ const Repositórios = ({ className, title, repos }) => (
   </div>
 )
 
-export default Repositórios
+Repos.defaultProps = {
+  className: ''
+}
+
+Repos.propTypes = {
+  className: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
+  repos: React.PropTypes.array
+}
+
+export default Repos
