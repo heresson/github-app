@@ -37,6 +37,26 @@ class App extends Component {
     }
   }
 
+  handleClickRepos (e) {
+    const value = this.state.userinfo.login
+    ajax().get(`https://api.github.com/users/${value}/repos`)
+      .then((result) => {
+        this.setState({
+          repos: result
+        })
+      })
+  }
+
+  handleClickStarred (e) {
+    const value = this.state.userinfo.login
+    ajax().get(`https://api.github.com/users/${value}/starred`)
+      .then((result) => {
+        this.setState({
+          starred: result
+        })
+      })
+  }
+
   render () {
     return (
       <AppContent
@@ -44,6 +64,8 @@ class App extends Component {
         repos={this.state.repos}
         starred={this.state.starred}
         handleSearch={(e) => this.handleSearch(e)}
+        handleClickRepos={(e) => this.handleClickRepos(e)}
+        handleClickStarred={(e) => this.handleClickStarred(e)}
       />
     )
   }
