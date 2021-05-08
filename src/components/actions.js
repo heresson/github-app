@@ -2,16 +2,17 @@
 
 import React from 'react'
 
-const Actions = ({handleClickRepos, handleClickStarred}) => (
+const Actions = ({getRepos, getStarred}) => (
 
   <div className='actions'>
-    <button onClick={handleClickRepos}>Ver repositórios</button>
-    <button onClick={handleClickStarred}>Ver favoritos</button>
+    <button onClick={getRepos}>Ver repositórios</button>
+    <button onClick={getStarred}>Ver favoritos</button>
   </div>
 )
 
 Actions.propTypes = {
-  handleClickRepos: React.PropTypes.func.isRequired
+  getRepos: React.PropTypes.func.isRequired,
+  getStarred: React.PropTypes.func.isRequired
 }
 
 export default Actions
